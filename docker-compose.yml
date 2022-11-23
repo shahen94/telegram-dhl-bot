@@ -1,0 +1,13 @@
+services:
+  telegram_dhl_db:
+    image: postgres:15.1
+    container_name: telegram_dhl_db
+    restart: always
+    environment:
+      POSTGRES_USER: telegram_dhl
+      POSTGRES_PASSWORD: telegram_dhl
+      POSTGRES_DB: telegram_dhl
+    volumes:
+      - ./db_dump:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
